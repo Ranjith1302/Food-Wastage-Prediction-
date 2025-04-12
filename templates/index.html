@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Wastage Prediction</title>
+  <!-- Bootstrap CSS for responsive design and modern look -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #333;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+    h2 {
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      background-color: #007BFF;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .form-label {
+      font-weight: 600;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.25em;
+      color: #28a745;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center">Food Wastage Prediction System</h2>
+    <form action="/predict" method="post">
+      <div class="form-group">
+        <label for="number_of_guests" class="form-label">Number of Guests</label>
+        <input type="number" class="form-control" id="number_of_guests" name="number_of_guests" placeholder="Enter number of guests" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity_of_food" class="form-label">Quantity of Food</label>
+        <input type="number" class="form-control" id="quantity_of_food" name="quantity_of_food" placeholder="Enter quantity of food" required>
+      </div>
+      <div class="form-group">
+        <label for="type_of_food" class="form-label">Type of Food</label>
+        <select class="form-control" id="type_of_food" name="type_of_food">
+          <option value="Meat">Meat</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Baked Goods">Baked Goods</option>
+          <option value="Dairy Products">Dairy Products</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="event_type" class="form-label">Event Type</label>
+        <select class="form-control" id="event_type" name="event_type">
+          <option value="Corporate">Corporate</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Social Gathering">Social Gathering</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="storage_conditions" class="form-label">Storage Conditions</label>
+        <select class="form-control" id="storage_conditions" name="storage_conditions">
+          <option value="Refrigerated">Refrigerated</option>
+          <option value="Room Temperature">Room Temperature</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="purchase_history" class="form-label">Purchase History</label>
+        <select class="form-control" id="purchase_history" name="purchase_history">
+          <option value="Regular">Regular</option>
+          <option value="Occasional">Occasional</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="seasonality" class="form-label">Seasonality</label>
+        <select class="form-control" id="seasonality" name="seasonality">
+          <option value="All Seasons">All Seasons</option>
+          <option value="Winter">Winter</option>
+          <option value="Summer">Summer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="preparation_method" class="form-label">Preparation Method</label>
+        <select class="form-control" id="preparation_method" name="preparation_method">
+          <option value="Buffet">Buffet</option>
+          <option value="Finger Food">Finger Food</option>
+          <option value="Sit-down Dinner">Sit-down Dinner</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="geographical_location" class="form-label">Geographical Location</label>
+        <select class="form-control" id="geographical_location" name="geographical_location">
+          <option value="Urban">Urban</option>
+          <option value="Suburban">Suburban</option>
+          <option value="Rural">Rural</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pricing" class="form-label">Pricing</label>
+        <select class="form-control" id="pricing" name="pricing">
+          <option value="Low">Low</option>
+          <option value="Moderate">Moderate</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Predict</button>
+    </form>
+    {% if prediction_text %}
+      <div class="result text-center">
+        <h3>{{ prediction_text }}</h3>
+      </div>
+    {% endif %}
+  </div>
+  
+  <!-- Bootstrap JS and dependencies (optional for interactive components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
