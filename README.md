@@ -165,6 +165,8 @@ Runtime logs: Console in Vercel
 
 Optionally integrate: Sentry, LogRocket, or Slack Alerts
 
+![image](https://github.com/user-attachments/assets/451daa2c-3ce6-4b83-99e5-090027657cd1)
+
 
 ---
 
